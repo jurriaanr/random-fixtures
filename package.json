@@ -10,7 +10,11 @@
     "packages/chuck-norris"
   ],
   "scripts": {
-    "build": "npm run build -w @random-fixtures/core && npm run build -w @random-fixtures/ancient && npm run build -w @random-fixtures/address && npm run build -w @random-fixtures/chuck-norris"
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "test:watch": "npm run test:watch --workspaces --if-present",
+    "dev": "npm run dev --workspaces --if-present",
+    "clean": "rm -rf packages/**/dist"
   },
   "author": "",
   "license": "MIT",

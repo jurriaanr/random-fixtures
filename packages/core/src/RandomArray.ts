@@ -8,6 +8,7 @@ export class RandomArray<T> extends Array<T> {
     }
 
     random(): T {
+        if (this.length === 0) throw new Error('RandomArray is empty.');
         const index = Math.floor(Math.random() * this.length);
         return this[index];
     }

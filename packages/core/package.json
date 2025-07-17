@@ -4,6 +4,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "dev": "vitest watch",
+    "test": "vitest run",
+    "test:watch": "vitest"
   }
 }
