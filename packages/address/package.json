@@ -1,0 +1,12 @@
+{
+  "name": "@random-fixtures/address",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@random-fixtures/core": "1.0.0"
+  }
+}
