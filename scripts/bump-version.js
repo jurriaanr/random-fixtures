@@ -5,20 +5,29 @@ import { __dirname, packages } from './packages.js';
 const rootDir = path.resolve(__dirname, '..');
 const packagesDir = path.join(rootDir, 'packages');
 
-// Step 1: Read root version
+const typeArg = process.argv.find((arg) => ['--major', '--minor', '--patch'].includes(arg));
+const bumpType = (typeArg && typeArg.slice(2)) || 'patch';
+
 const rootPkgPath = path.join(rootDir, 'package.json');
 const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, 'utf-8'));
 
 const [major, minor, patch] = rootPkg.version.split('.').map(Number);
-const newVersion = `${major}.${minor}.${patch + 1}`;
+let newVersion;
+if (bumpType === 'major') {
+  newVersion = `${major + 1}.0.0`;
+} else if (bumpType === 'minor') {
+  newVersion = `${major}.${minor + 1}.0`;
+} else {
+  newVersion = `${major}.${minor}.${patch + 1}`;
+}
 
 console.log(`📦 Bumping version to: ${newVersion}`);
 
-// Step 2: Update root version
 rootPkg.version = newVersion;
 fs.writeFileSync(rootPkgPath, JSON.stringify(rootPkg, null, 2) + '\n');
 
-// Step 3: Update each workspace
+console.log(`✅ Updated package.json`);
+
 for (const name of packages) {
   const pkgPath = path.join(packagesDir, name, 'package.json');
 

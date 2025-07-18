@@ -19,7 +19,8 @@
     "copy-readme": "node scripts/copy-readme.js",
     "remove-readme": "node scripts/remove-readme.js",
     "bump": "node scripts/bump-version.js",
-    "release": "npm run bump && npm run build && npm publish --access public --workspaces --if-present && npm run remove-readme"
+    "release": "npm run bump && npm run release-no-bump",
+    "release-no-bump": "npm run build && npm publish --access public --workspaces --if-present && npm run remove-readme"
   },
   "author": "",
   "license": "MIT",
