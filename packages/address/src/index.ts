@@ -2,6 +2,9 @@ import { $random, RandomArray } from '@random-fixtures/core';
 
 declare module '@random-fixtures/core' {
   interface RandomRegistry {
+    /**
+     * Module that makes available all kinds of address related string, like random cities, streets, etc
+     */
     address: Address;
   }
 }

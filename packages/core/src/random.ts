@@ -8,6 +8,14 @@ class RandomNumber {
   }
 }
 
-export const $random: RandomRegistry = {
-  number: new RandomNumber(),
-} as RandomRegistry;
+// Factory function needed to get typing working
+export function createRandom(): RandomRegistry {
+  return {
+    /**
+     * Module that makes available number related random functions
+     */
+    number: new RandomNumber(),
+  } as RandomRegistry;
+}
+
+export const $random = createRandom();

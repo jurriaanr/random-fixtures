@@ -1,9 +1,11 @@
 {
   "name": "random-fixtures",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "description": "Generated random quotes, addresses, numbers, etc",
   "main": "dist/index.js",
   "type": "module",
+  "license": "MIT",
+  "author": "Jurriaan Ruitenberg",
   "workspaces": [
     "packages/core",
     "packages/ancient",
@@ -11,19 +13,17 @@
     "packages/chuck-norris"
   ],
   "scripts": {
-    "build": "npm run copy-readme && npm run build --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present",
-    "test:watch": "npm run test:watch --workspaces --if-present",
-    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run copy-readme && npm run build --ws --if-present",
+    "test": "npm run test --ws --if-present",
+    "test:watch": "npm run test:watch --ws --if-present",
+    "dev": "npm run dev --ws --if-present",
     "clean": "rm -rf packages/**/dist",
     "copy-readme": "node scripts/copy-readme.js",
     "remove-readme": "node scripts/remove-readme.js",
     "bump": "node scripts/bump-version.js",
     "release": "npm run bump && npm run release-no-bump",
-    "release-no-bump": "npm run build && npm publish --access public --workspaces --if-present && npm run remove-readme"
+    "release-no-bump": "npm run build && npm publish --access public --ws --if-present && npm run remove-readme"
   },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "@vitest/coverage-v8": "^3.2.4",
     "eslint": "^9.23.0",

@@ -2,6 +2,9 @@ import { $random, RandomArray } from '@random-fixtures/core';
 
 declare module '@random-fixtures/core' {
   interface RandomRegistry {
+    /**
+     * Module that makes available Greek Mythology
+     */
     ancient: Ancient;
   }
 }
@@ -64,4 +67,9 @@ class Ancient {
   }
 }
 
-$random.ancient = new Ancient();
+//$random.ancient = new Ancient();
+
+($random as any).ancient = new Ancient();
+
+// 👇 AND THIS: force the symbol to be visible in `.d.ts`
+export type __forceAncientTypesToEmit = Ancient;
