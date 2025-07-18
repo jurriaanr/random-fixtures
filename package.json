@@ -1,8 +1,9 @@
 {
   "name": "random-fixtures",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generated random quotes, addresses, numbers, etc",
   "main": "dist/index.js",
+  "type": "module",
   "workspaces": [
     "packages/core",
     "packages/ancient",
@@ -10,11 +11,15 @@
     "packages/chuck-norris"
   ],
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
+    "build": "npm run copy-readme && npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "test:watch": "npm run test:watch --workspaces --if-present",
     "dev": "npm run dev --workspaces --if-present",
-    "clean": "rm -rf packages/**/dist"
+    "clean": "rm -rf packages/**/dist",
+    "copy-readme": "node scripts/copy-readme.js",
+    "remove-readme": "node scripts/remove-readme.js",
+    "bump": "node scripts/bump-version.js",
+    "release": "npm run bump && npm run build && npm publish --access public --workspaces --if-present && npm run remove-readme"
   },
   "author": "",
   "license": "MIT",
@@ -24,6 +29,7 @@
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.6",
     "prettier": "^3.5.3",
+    "ts-node": "^10.9.2",
     "tsx": "^4.20.3",
     "typescript": "^5.0.0",
     "typescript-eslint": "^8.29.0",

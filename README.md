@@ -20,7 +20,6 @@ Examples:
 
 Or using one of the modules
 
-
     import { $random } from '@random-fixtures/core'
     import '@random-fixtures/chuck-norris'
 
