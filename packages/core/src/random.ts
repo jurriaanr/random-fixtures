@@ -1,13 +1,13 @@
 export interface RandomRegistry {
-    number: RandomNumber;
+  number: RandomNumber;
 }
 
 class RandomNumber {
-    int(min = 0, max: 10000) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+  int(min: number = 0, max: number = 10000): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 }
 
 export const $random: RandomRegistry = {
-    number: new RandomNumber(),
+  number: new RandomNumber(),
 } as RandomRegistry;

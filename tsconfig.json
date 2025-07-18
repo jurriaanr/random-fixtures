@@ -1,22 +1,11 @@
 {
-  "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "declaration": true,
-    "declarationMap": true,
-    "skipLibCheck": true,
-    "composite": true,
-    "baseUrl": ".",
-    "paths": {
-      "@random-fixtures/core": ["packages/core/src"],
-      "@random-fixtures/address": ["packages/address/src"],
-      "@random-fixtures/ancient": ["packages/ancient/src"],
-      "@random-fixtures/chuck-norris": ["packages/chuck-norris/src"]
-    }
-  },
-  "include": ["packages/*/src"]
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "references": [
+    { "path": "packages/core" },
+    { "path": "packages/address" },
+    { "path": "packages/ancient" },
+    { "path": "packages/chuck-norris" }
+  ]
 }
+
