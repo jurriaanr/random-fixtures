@@ -11,7 +11,11 @@ const alias = {
 
 export const sharedConfig = {
     resolve: { alias },
-    plugins: [dts()],
+    plugins: [dts({
+        entryRoot: 'src', // 👈 Ensures output is rooted at src
+        outDir: 'dist', // 👈 Puts files in dist/
+        cleanVueFileName: true
+    })],
 };
 
 export function createViteConfig(entryFile: string) {

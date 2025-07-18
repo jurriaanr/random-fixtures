@@ -1,3 +1,3 @@
 // packages/core/src/index.ts
-export { $random } from './random';
+export { $random, RandomRegistry } from './random';
 export { RandomArray } from './RandomArray';
